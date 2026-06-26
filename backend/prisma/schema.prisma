@@ -1,0 +1,94 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              Int            @id @default(autoincrement())
+  name            String
+  email           String         @unique
+  passwordHash    String
+  role            String         @default("user")
+  profilePicUrl   String?
+  settings        Json?          // Stores chosen persona theme, shortcuts, etc.
+  tasks           Task[]
+  categories      Category[]
+  activities      Activity[]
+  notes           Note[]
+  refreshTokens   RefreshToken[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model Task {
+  id            Int         @id @default(autoincrement())
+  userId        Int
+  categoryId    Int?
+  title         String
+  description   String?
+  status        String      @default("todo") // todo, in-progress, completed
+  priority      String      @default("low")  // low, medium, high
+  dueDate       DateTime?
+  reminder      DateTime?
+  estimatedTime Int?        // in minutes
+  actualTime    Int?        // in minutes
+  isFavorite    Boolean     @default(false)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  deletedAt     DateTime?   // Soft-delete support
+  user          User        @relation(fields: [userId], references: [id])
+  category      Category?   @relation(fields: [categoryId], references: [id])
+  subtasks      SubTask[]
+  tags          Tag[]       @relation("TagsOnTasks")
+}
+
+model SubTask {
+  id        Int      @id @default(autoincrement())
+  taskId    Int
+  title     String
+  done      Boolean  @default(false)
+  task      Task     @relation(fields: [taskId], references: [id])
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  name      String
+  user      User     @relation(fields: [userId], references: [id])
+  tasks     Task[]
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  tasks     Task[]   @relation("TagsOnTasks")
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  content   String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  type      String   // e.g. created, updated, completed, archived, deleted
+  details   String?
+  timestamp DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String   @unique
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id])
+}
