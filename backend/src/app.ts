@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import apiRouter from './routes';
+import { globalErrorHandler } from './middlewares/errorHandler';
 
 const app = express();
 
@@ -48,13 +49,7 @@ app.use('*', (req, res) => {
   });
 });
 
-// Centralized Error Handler (Basic version for Day 1)
-app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
-  console.error('Unhandled Exception:', err);
-  res.status(500).json({
-    status: 'error',
-    message: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message,
-  });
-});
+// Centralized Error Handler (Robust version for Day 3)
+app.use(globalErrorHandler);
 
 export default app;
