@@ -123,22 +123,22 @@ model RefreshToken {
     - Setup directory structures: `backend/` and `frontend/`.
     - Configure backend `package.json`, TypeScript definitions, and compiler strict rules.
     - Write Express base server with CORS, Helmet headers, Rate Limiting, and `/api/health` status checks.
-*   **Day 2: Database Layer Configuration (PostgreSQL & Prisma)**
+*   **Day 2 (Completed): Database Layer Configuration (PostgreSQL & Prisma)**
     - Compose Prisma Schema schema based on the relational DB models.
     - Configure PostgreSQL docker configurations or client connections.
     - Validate prisma client compilations.
-*   **Day 3: Seed Scripts & Centralized Error Middleware**
+*   **Day 3 (Completed): Seed Scripts & Centralized Error Middleware**
     - Create a custom data-seeding file `prisma/seed.ts` containing starter mockup information.
     - Setup express global error handler intercepting runtime violations.
     - Create structural payload validation utilities leveraging Zod schemas.
-*   **Day 4: Authentication Core: Register & Login Backend**
+*   **Day 4 (Completed): Authentication Core: Register & Login Backend**
     - Create models hashing with bcrypt.
     - Implement JWT signature systems (access tokens & refresh tokens).
     - Expose endpoints: `/api/auth/register`, `/api/auth/login`.
-*   **Day 5: Authentication Core: Token Rotation & Middleware**
+*   **Day 5 (Completed): Authentication Core: Token Rotation & Middleware**
     - Expose `/api/auth/refresh-token` and `/api/auth/logout`.
     - Build `authMiddleware` decoding and checking bearer JWT authorization tokens on private routers.
-*   **Day 6: Client Side Framework Scaffolding**
+*   **Day 6 (Completed): Client Side Framework Scaffolding**
     - Initialize frontend folder via Vite + React + TS workspace.
     - Integrate Tailwind CSS. Verify global styles, fonts, and baseline setups.
 *   **Day 7: Client-Side Routing & Session Providers**
