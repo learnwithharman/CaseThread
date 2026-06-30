@@ -1,4 +1,5 @@
 import { Router, Request, Response } from 'express';
+import authRouter from './auth';
 
 const router = Router();
 
@@ -12,8 +13,13 @@ router.get('/health', (_req: Request, res: Response) => {
     status: 'success',
     message: 'CaseThread API is healthy and operational',
     timestamp: new Date().toISOString(),
-    env: process.env.NODE_ENV || 'development'
+    env: process.env.NODE_ENV || 'development',
   });
 });
+
+/**
+ * Authentication routes — /api/auth/*
+ */
+router.use('/auth', authRouter);
 
 export default router;

@@ -224,6 +224,35 @@ Two-column layout:
 
 ---
 
+### 6. SON GOKU
+- **Font:** `Outfit` (sans-serif) — energetic, modern, bold
+- **Primary Color:** `#f97316` (orange-500) — martial arts gi orange
+- **Accent:** `#facc15` (yellow-400) — Super Saiyan aura yellow
+- **Background:** `linear-gradient(135deg, #0a0010 0%, #1a0530 100%)` — dark cosmic purple
+- **Card BG:** `rgba(10, 0, 16, 0.85)`
+- **Text:** `#fef9ee`
+- **Login Background Image:** `6897234-finished-this-show-today-and-this-is-my.jpg` — Goku's stance graphic, high-contrast action vibe. Overlay: `rgba(0,0,0,0.55)`
+- **Login Title:** "Enter the Gravity Chamber."
+- **Tagline:** "Push your limits. Power comes in response to a need, not a desire."
+- **Special UI Detail:** Power level numbers, custom workout-inspired stat layout, pulsing high-energy accents.
+
+---
+
+### 7. CAPTAIN LEVI / ATTACK ON TITAN
+- **Font:** `Inter` (sans-serif) — strict, direct, military efficiency
+- **Primary Color:** `#64748b` (slate-500) — steel blade silver
+- **Accent:** `#10b981` (emerald-500) — Survey Corps green cloak
+- **Background:** `linear-gradient(135deg, #0d1117 0%, #161b22 100%)` — dark military barracks grey/navy
+- **Card BG:** `rgba(13, 17, 23, 0.9)`
+- **Text:** `#e6edf3`
+- **Login Background Image:** `43336e2e4e6e21c02dbf731dbf5ddc7a.jpe` — Captain Levi's character art, clinical green cloak theme. Overlay: `rgba(0,0,0,0.6)`
+- **Login Title:** "Access Survey Corps Files."
+- **Tagline:** "Dedicate your heart. Clean up this mess and make the choice you won't regret."
+- **Special UI Detail:** Ultra-clean minimalist lists, green crest icons, clean lines, and strict checklist hierarchies.
+
+---
+
+
 ## 📐 Animation & Interaction Guidelines
 
 ### Persona Switcher (Login Page Bottom Buttons)
@@ -260,8 +289,8 @@ All character image assets live in: `d:\learning files\CaseThread\login themes\`
 | Breaking Bad | `breaking-bad-fascinating-facts.BXGqgKI3.jpg` | Login left panel BG |
 | Patrick Jane | `R.jpeg` | Login left panel BG (The Mentalist poster) |
 | Sherlock | *(to be added)* | Login left panel BG |
-| Goku | *(to be added)* | Login left panel BG |
-| AoT | *(to be added)* | Login left panel BG |
+| Goku | `6897234-finished-this-show-today-and-this-is-my.jpg` | Login left panel BG |
+| AoT | `43336e2e4e6e21c02dbf731dbf5ddc7a.jpe` | Login left panel BG |
 
 When building the frontend, copy these assets into `frontend/public/assets/login/` and reference them via `/assets/login/filename`.
 
